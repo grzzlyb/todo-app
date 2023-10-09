@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Expense</title>
+  <link rel="stylesheet" href="/add-page-styles.css">
+</head>
+<body>
+<h1>Add Task</h1>
+<form method="post" th:action="@{/app/save}">
+  <label for="task">Task:</label>
+  <input type="text" id="task" name="task" required>
+  <br>
+  <label for="notes">Notes:</label>
+  <input type="text" id="notes" name="notes" required>
+  <br>
+  <button type="submit">Add Task</button>
+</form>
+<a href="/app/list">Back to the list</a>
+</body>
+</html>

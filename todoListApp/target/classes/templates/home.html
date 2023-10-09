@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>todo</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h1>todo</h1>
+<a href="/app/add">Add Task</a>
+<table>
+  <thead>
+  <tr>
+    <th>Task</th>
+    <th>Notes</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="todoTask : ${todolist}">
+    <td th:text="${todoTask.task}">Task</td>
+    <td th:text="${todoTask.notes}">Notes</td>
+    <td>
+      <form th:action="@{/app/delete}" th:method="post">
+        <input type="hidden" name="taskId" th:value="${todoTask.id}" />
+        <button type="submit" onclick="return confirm('Are you sure you want to delete this task?')">Delete</button>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
